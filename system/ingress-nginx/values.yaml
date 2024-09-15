@@ -5,6 +5,9 @@ ingress-nginx:
       ports:
         http: 31080
         https: 31443
+      targetPorts:
+        http: http
+        https: https
     admissionWebhooks:
       timeoutSeconds: 30
     metrics:
