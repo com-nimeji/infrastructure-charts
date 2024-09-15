@@ -1,6 +1,3 @@
-gitops:
-  repo: https://github.com/nimeji/homelab
-  revision: master
 stacks:
   - name: bootstrap
     repo: https://github.com/com-nimeji/infrastructure-charts
