@@ -2,12 +2,11 @@ ingress-nginx:
   controller:
     service:
       type: NodePort
-      ports:
+      nodePorts:
         http: 31080
         https: 31443
-      targetPorts:
-        http: http
-        https: https
+        tcp:
+          22: 31022
     admissionWebhooks:
       timeoutSeconds: 30
     metrics:
