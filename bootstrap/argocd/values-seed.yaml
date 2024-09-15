@@ -1,0 +1,15 @@
+argo-cd:
+  configs:
+    params:
+      controller.diff.server.side: "true"
+  server:
+    metrics: &metrics
+      enabled: false
+      serviceMonitor:
+        enabled: false
+  controller:
+    metrics: *metrics
+  repoServer:
+    metrics: *metrics
+  redis:
+    metrics: *metrics

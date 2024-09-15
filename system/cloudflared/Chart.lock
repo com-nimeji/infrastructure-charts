@@ -1,0 +1,6 @@
+dependencies:
+- name: cloudflared
+  repository: https://khuedoan.github.io/charts
+  version: 0.4.3
+digest: sha256:1556ecfab3ef537909fba125a133c78e7883f9ad2af2ab5f9e1c2fb7deed7835
+generated: "2024-08-22T18:41:17.7016384+02:00"
