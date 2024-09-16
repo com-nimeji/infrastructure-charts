@@ -7,5 +7,3 @@ external-dns:
         secretKeyRef:
           name: cloudflare-api-token
           key: value
-  extraArgs:
-    - --target=10.147.20.107

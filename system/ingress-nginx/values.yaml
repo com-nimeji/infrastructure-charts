@@ -2,6 +2,9 @@ ingress-nginx:
   controller:
     service:
       type: NodePort
+      # zerotier ip of the server
+      externalIPs:
+        - 10.147.20.107
       nodePorts:
         http: 31080
         https: 31443
