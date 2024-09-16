@@ -2,6 +2,9 @@ ingress-nginx:
   controller:
     service:
       type: NodePort
+      internal:
+        # needs to match server ip in zerotier
+        clusterIP: 10.147.20.107
       nodePorts:
         http: 31080
         https: 31443
