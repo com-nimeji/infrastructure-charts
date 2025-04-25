@@ -70,4 +70,4 @@ spec:
       volumes:
         - name: config
           persistentVolumeClaim:
-            claimName: wg-easy-storage-claim
+            claimName: wg-easy-pvc
