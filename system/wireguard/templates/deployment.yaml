@@ -68,6 +68,13 @@ spec:
           volumeMounts:
             - mountPath: /etc/wireguard
               name: config
+          lifecycle:
+            postStart:
+              exec:
+                command: [
+                  "sh", "-c",
+                  "iptables -t nat -A POSTROUTING -s 10.8.0.0/24 -d {{ .Values.allowedIPs }} -j MASQUERADE"
+                ]
       restartPolicy: Always
       volumes:
         - name: config
