@@ -1,5 +1,7 @@
 ingress-nginx:
   controller:
+    service:
+      type: ClusterIP
     admissionWebhooks:
       timeoutSeconds: 30
     metrics:
