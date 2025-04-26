@@ -24,7 +24,7 @@ spec:
             - name: WG_HOST
               value: {{ .Values.ui.host }}
             - name: WG_PORT
-              value: "30000"
+              value: "51820"
             - name: WG_ALLOWED_IPS
               value: {{ .Values.allowedIPs }}
           image: ghcr.io/wg-easy/wg-easy
