@@ -27,6 +27,10 @@ spec:
               value: "51820"
             - name: WG_ALLOWED_IPS
               value: {{ .Values.allowedIPs }}
+            - name: WG_POST_UP
+              value: "iptables -A FORWARD -i %i -j ACCEPT; iptables -A FORWARD -o %i -j ACCEPT; iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE"
+            - name: WG_POST_DOWN
+              value: "iptables -D FORWARD -i %i -j ACCEPT; iptables -D FORWARD -o %i -j ACCEPT; iptables -t nat -D POSTROUTING -o eth0 -j MASQUERADE"
           image: ghcr.io/wg-easy/wg-easy
           imagePullPolicy: IfNotPresent
           ports:
@@ -68,13 +72,6 @@ spec:
           volumeMounts:
             - mountPath: /etc/wireguard
               name: config
-          lifecycle:
-            postStart:
-              exec:
-                command: [
-                  "sh", "-c",
-                  "iptables -t nat -A POSTROUTING -s 10.8.0.0/24 -d {{ .Values.allowedIPs }} -j MASQUERADE"
-                ]
       restartPolicy: Always
       volumes:
         - name: config
