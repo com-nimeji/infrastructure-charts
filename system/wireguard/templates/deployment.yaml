@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: wg-easy
-  namespace: wg-easy
+  namespace: {{ .Release.Namespace }}
 spec:
   replicas: 1
   revisionHistoryLimit: 1
@@ -22,9 +22,11 @@ spec:
           # Specify external hostname and port as environment variables
           env:
             - name: WG_HOST
-              value: wg.nimeji.com
+              value: {{ .Values.ui.host }}
             - name: WG_PORT
               value: "30000"
+            - name: ALLOWED_IPS
+              value: {{ .Values.allowedIPs }}
           image: ghcr.io/wg-easy/wg-easy
           imagePullPolicy: IfNotPresent
           ports:

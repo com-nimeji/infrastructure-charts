@@ -4,11 +4,11 @@ metadata:
   annotations:
     cert-manager.io/cluster-issuer: letsencrypt-prod
   name: wg-easy
-  namespace: wg-easy
+  namespace: {{ .Release.Namespace }}
 spec:
   ingressClassName: nginx
   rules:
-    - host: wg.nimeji.com
+    - host: {{ .Values.ui.host }}
       http:
         paths:
           - backend:
@@ -20,5 +20,5 @@ spec:
             pathType: Prefix
   tls:
     - hosts:
-        - wg.nimeji.com
+        - {{ .Values.ui.host }}
       secretName: wg-easy-tls
