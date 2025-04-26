@@ -22,9 +22,9 @@ spec:
           # Specify external hostname and port as environment variables
           env:
             - name: WG_HOST
-              value: {{ .Values.ui.host }}
+              value: {{ .Values.wg.host }}
             - name: WG_PORT
-              value: "51820"
+              value: {{ .Values.wg.nodePort }}
             - name: WG_ALLOWED_IPS
               value: {{ .Values.allowedIPs }}
           image: ghcr.io/wg-easy/wg-easy
