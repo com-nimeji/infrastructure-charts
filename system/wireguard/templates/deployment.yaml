@@ -26,7 +26,7 @@ spec:
             - name: WG_PORT
               value: {{ .Values.wg.nodePort }}
             - name: WG_ALLOWED_IPS
-              value: {{ .Values.allowedIPs }}
+              value: {{ .Values.wg.allowedIPs }}
           image: ghcr.io/wg-easy/wg-easy
           imagePullPolicy: IfNotPresent
           ports:
