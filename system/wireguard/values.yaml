@@ -3,6 +3,6 @@ wg:
   allowedIPs: "10.43.0.0/16"
   # public ip for wg tunnel
   host: "94.130.164.224"
-  nodePort: "30000"
+  nodePort: 30000
 ui:
-  host: "wg.nimeji.com"
+  host: wg.nimeji.com
