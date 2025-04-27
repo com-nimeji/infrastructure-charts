@@ -5,4 +5,6 @@ dependencies:
   - name: rancher-cis-benchmark-crd
     version: 6.8.0
     repository: https://charts.rancher.io/
-
+  - name: rancher-cis-benchmark
+    version: 6.8.0
+    repository: https://charts.rancher.io/
